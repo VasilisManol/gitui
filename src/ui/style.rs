@@ -34,6 +34,7 @@ pub struct Theme {
 	branch_fg: Color,
 	line_break: String,
 	block_title_focused: Color,
+	syntax: String,
 }
 
 impl Theme {
@@ -353,6 +354,7 @@ impl Default for Theme {
 			branch_fg: Color::LightYellow,
 			line_break: "¶".to_string(),
 			block_title_focused: Color::Reset,
+			syntax: "dark".to_string(),
 		}
 	}
 }
@@ -378,6 +380,7 @@ mod tests {
 (
 	selection_bg: Some("Black"),
 	selection_fg: Some("#ffffff"),
+	syntax_theme: Some("Github_theme")
 )
 "##
 		)
@@ -388,7 +391,9 @@ mod tests {
 		assert_eq!(theme.selected_tab, Theme::default().selected_tab);
 
 		assert_ne!(theme.selection_bg, Theme::default().selection_bg);
+		assert_ne!(theme.syntax, Theme::default().syntax);
 		assert_eq!(theme.selection_bg, Color::Black);
 		assert_eq!(theme.selection_fg, Color::Rgb(255, 255, 255));
+		assert_eq!(theme.syntax, "Github_theme");
 	}
 }

@@ -93,6 +93,8 @@ impl SyntaxText {
 			}))
 		};
 
+		// This should be changed to the one provided by the theme.ron
+		// for light terminal e.g. InspiredGitHub
 		let highlighter = Highlighter::new(
 			&THEME_SET.themes["base16-eighties.dark"],
 		);
